@@ -1,0 +1,7 @@
+D:\Unreal Projects\SnakeGame\Intermediate\Build\Win64\UE4Editor\Development\SnakeGame\Definitions.SnakeGame.h
+D:\Unreal Projects\SnakeGame\Source\SnakeGame\PlayerPawnBase.h
+D:\Unreal Projects\SnakeGame\Intermediate\Build\Win64\UE4Editor\Inc\SnakeGame\PlayerPawnBase.generated.h
+D:\Unreal Engine 4\UE_4.26\Engine\Source\Runtime\Engine/Classes/Camera/CameraComponent.h
+D:\Unreal Engine 4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+D:\Unreal Projects\SnakeGame\Source\SnakeGame\SnakeBase.h
+D:\Unreal Projects\SnakeGame\Intermediate\Build\Win64\UE4Editor\Inc\SnakeGame\SnakeBase.generated.h
