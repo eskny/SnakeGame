@@ -20,7 +20,7 @@ void ASnakeBase::BeginPlay()
 {
 	Super::BeginPlay();
 	SetActorTickInterval(MovementSnakeSpeed);
-	AddSnakeElement(7);
+	AddSnakeElement(5);
 	
 }
 
