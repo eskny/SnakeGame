@@ -12,7 +12,7 @@ ASnakeBase::ASnakeBase()
 
 	ElementSize = 100.f;
 	MovementSnakeSpeed = 0,5.f;
-	LastMoveDirection = EMovementDirection::DOWN;
+	CurrentMoveDirection = EMovementDirection::DOWN;	
 }
 
 // Called when the game starts or when spawned
@@ -50,22 +50,27 @@ void ASnakeBase::AddSnakeElement(int ElementsNum)
 
 void ASnakeBase::Move()
 {
+	TrySwitchDirection(CurrentMoveDirection);
+
 	FVector MovementVector(ForceInitToZero);
 	float MovementSpeed = ElementSize;
 
-	switch (LastMoveDirection)
+	switch (CurrentMoveDirection)
 	{
-	case EMovementDirection::UP:
-		MovementVector.X += MovementSpeed;
+	case EMovementDirection::UP :
+			MovementVector.X += MovementSpeed;	
 		break;
+
 	case EMovementDirection::DOWN:
-		MovementVector.X -= MovementSpeed;
+			MovementVector.X -= MovementSpeed;
 		break;
+
 	case EMovementDirection::LEFT:
-		MovementVector.Y += MovementSpeed;
+			MovementVector.Y += MovementSpeed;
 		break;
+
 	case EMovementDirection::RIGHT:
-		MovementVector.Y -= MovementSpeed;
+			MovementVector.Y -= MovementSpeed;
 		break;
 	}
 	
@@ -79,5 +84,37 @@ void ASnakeBase::Move()
 	}
 
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
+}
+
+void ASnakeBase::TrySwitchDirection(EMovementDirection& Current)
+{
+	bool ValidMovement;
+
+	switch (Current)
+	{
+	case EMovementDirection::UP:
+		ValidMovement = TempMoveDirection != EMovementDirection::DOWN;
+		break;
+
+	case EMovementDirection::DOWN:
+		ValidMovement = TempMoveDirection != EMovementDirection::UP;
+		break;
+
+	case EMovementDirection::LEFT:
+		ValidMovement = TempMoveDirection != EMovementDirection::RIGHT;
+		break;
+
+	case EMovementDirection::RIGHT:
+		ValidMovement = TempMoveDirection != EMovementDirection::LEFT;
+		break;
+
+	default:
+		ValidMovement = false;
+	}
+
+	if (ValidMovement)
+	{
+		Current = TempMoveDirection;
+	}
 }
 

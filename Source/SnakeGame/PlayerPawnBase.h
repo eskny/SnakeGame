@@ -27,6 +27,9 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 		TSubclassOf<ASnakeBase> SnakeActorClass;
 
+	//UPROPERTY(EditDefaultsOnly)
+		//bool Flag;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

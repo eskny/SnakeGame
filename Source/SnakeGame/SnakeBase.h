@@ -17,6 +17,7 @@ enum class EMovementDirection
 	RIGHT
 };
 
+
 UCLASS()
 class SNAKEGAME_API ASnakeBase : public AActor
 {
@@ -41,6 +42,12 @@ public:
 	UPROPERTY()
 		EMovementDirection LastMoveDirection;
 
+	UPROPERTY()
+		EMovementDirection TempMoveDirection;
+
+	UPROPERTY()
+		EMovementDirection CurrentMoveDirection;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -52,4 +59,7 @@ public:
 	void AddSnakeElement(int ElementsNum = 1);
 
 	void Move();
+
+private:
+	void TrySwitchDirection(EMovementDirection& Current);
 };
